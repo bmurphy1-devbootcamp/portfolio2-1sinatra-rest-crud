@@ -1,3 +1,7 @@
+body {
+  text-align: center;
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
@@ -6,4 +10,20 @@
 }
 th {
   text-align: left;
+}
+
+header {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
+
+.new-note {
+  text-align: center;
+}
+
+.edit-note {
+  text-align: center;
 }

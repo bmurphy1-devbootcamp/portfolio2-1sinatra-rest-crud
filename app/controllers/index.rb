@@ -1,28 +1,46 @@
 get '/' do
-  @posts = Post.all
+  # Show all notes
+  @notes = Note.all
   erb :index
 end
 
-get '/posts' do
-  erb :posts
+get '/notes' do
+redirect '/'
 end
 
-get '/posts/new' do
-  erb :posts_new
+get '/notes/new' do
+  # show new note page
+  erb :notes_new
 end
 
-post '/posts' do
+post '/notes' do
+  # CREATE
+  # save new note data from /notes/new
+  Note.create(title: params[:title], content: params[:content])
+  redirect '/'
 end
 
-get '/posts/:id' do
+get '/notes/:id' do
+  # READ
+  @note = Note.find(params[:id])
+  erb :note
 end
 
-get '/posts/edit/:id' do
-  erb :posts_edit
+put 'notes/:id' do
+  note = Note.find(params[:id])
+  note.title = params[:title]
+  note.content = params[:content]
+  note.save
+  redirect "/notes/#{params[:id]}"
 end
 
-put '/posts/:id' do
+get '/notes/:id/edit' do
+  # UPDATE
+  @note = Note.find(params[:id])
+  erb :notes_edit
 end
 
-delete '/photos/:id' do
+put '/notes/:id' do
+  # DESTROY
+  # edit note
 end

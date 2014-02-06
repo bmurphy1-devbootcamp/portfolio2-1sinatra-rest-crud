@@ -1,7 +1,7 @@
 <div class="container">
-  <ul>
-  <% @posts.each do |post| %>
-    <li><a <%= "href=/posts/#{post.id}" %> /></li>
+  <ol>
+  <% @notes.each do |note| %>
+    <li><a <%= "href=/notes/#{note.id}" %> /><%= note.title %></a></li>
     <% end %>
-  </ul>
+  </ol>
 </div>

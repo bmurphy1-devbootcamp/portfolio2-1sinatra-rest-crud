@@ -1,0 +1,13 @@
+<div="container">
+<%= @note.title %>
+<%= @note.content %></br></br>
+</br>
+</br>
+<h3>Enter new note info</h3>
+<form class="edit-note" action="/notes/<%= @note.id %>" method="put">
+  <input type="hidden" name="id" value="<%= @note.id %>">
+Title: <input type="text" name="title"></br></br>
+Text: <textarea name="content" rows="5" cols="22"></textarea><br></br>
+<input type="submit" value="Save Todo">
+</form>
+</div>
